@@ -6,7 +6,7 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				<SiteTabBar/>
+				<SiteTabBar pageContent={this.props.children}/>
 			</div>
 		);
 	}

@@ -1,32 +1,27 @@
 'use strict';
 import React, {Component} from 'react';
 import {TabBar, Icon} from 'antd-mobile';
+import './style.css';
+
+const HASH_MAP = {
+	MEETING_CONTENT: '/',
+	GO_SHOPPING: 'GoShopping',
+	MY_PARTNER: 'MyPartner',
+	PROFILE: 'Profile'
+};
 
 class SiteTabBar extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			selectedTab: 'redTab',
+			selectedTab: Object.keys(HASH_MAP)[0],
 			hidden: false
 		}
 	}
 
-	renderContent(pageText) {
-		return (
-			<div style={{backgroundColor: 'white', height: '100%', textAlign: 'center'}}>
-				<div style={{paddingTop: 60}}>你已点击“{pageText}” tab， 当前展示“{pageText}”信息</div>
-				<a style={{display: 'block', marginTop: 40}} onClick={(e) => {
-					e.preventDefault();
-					this.setState({
-						hidden: !this.state.hidden,
-					});
-				}}
-				>
-					点击切换 tab-bar 显示/隐藏
-				</a>
-			</div>
-		);
+	linkTo(hash) {
+		window.location.hash = hash;
 	}
 
 	render() {
@@ -38,63 +33,66 @@ class SiteTabBar extends Component {
 				hidden={this.state.hidden}
 			>
 				<TabBar.Item
-					title="生活"
-					key="生活"
-					icon={<Icon type="home"/>}
-					selectedIcon={<Icon type="home"/>}
-					selected={this.state.selectedTab === 'blueTab'}
-					badge={1}
+					title="会议内容"
+					key="会议内容"
+					icon={<Icon type="solution"/>}
+					selectedIcon={<Icon type="solution"/>}
+					selected={this.state.selectedTab === Object.keys(HASH_MAP)[0]}
 					onPress={() => {
 						this.setState({
-							selectedTab: 'blueTab',
+							selectedTab: Object.keys(HASH_MAP)[0],
 						});
+						this.linkTo(HASH_MAP.MEETING_CONTENT);
 					}}
 					data-seed="logId"
 				>
-					{this.renderContent('生活')}
+					{this.props.pageContent || '暂无内容'}
 				</TabBar.Item>
 				<TabBar.Item
-					icon={<Icon type="camera-o"/>}
-					selectedIcon={<Icon type="camera-o"/>}
-					title="口碑"
-					key="口碑"
-					selected={this.state.selectedTab === 'redTab'}
+					icon={<Icon type="shopping-cart"/>}
+					selectedIcon={<Icon type="shopping-cart"/>}
+					title="选择小食"
+					key="选择小食"
+					selected={this.state.selectedTab === Object.keys(HASH_MAP)[1]}
 					onPress={() => {
 						this.setState({
-							selectedTab: 'redTab',
+							selectedTab: Object.keys(HASH_MAP)[1],
 						});
+						this.linkTo(HASH_MAP.GO_SHOPPING);
 					}}
 					data-seed="logId1"
 				>
-					{this.renderContent('口碑')}
+					{this.props.pageContent || '暂无内容'}
 				</TabBar.Item>
 				<TabBar.Item
-					icon={<Icon type="environment"/>}
-					selectedIcon={<Icon type="environment"/>}
-					title="朋友"
-					key="朋友"
-					selected={this.state.selectedTab === 'greenTab'}
+					icon={<Icon type="team"/>}
+					selectedIcon={<Icon type="team"/>}
+					title="我的伙伴"
+					key="我的伙伴"
+					selected={this.state.selectedTab === Object.keys(HASH_MAP)[2]}
 					onPress={() => {
 						this.setState({
-							selectedTab: 'greenTab',
+							selectedTab: Object.keys(HASH_MAP)[2],
 						});
+						this.linkTo(HASH_MAP.MY_PARTNER);
 					}}
 				>
-					{this.renderContent('朋友')}
+					{this.props.pageContent || '暂无内容'}
 				</TabBar.Item>
 				<TabBar.Item
-					icon={<Icon type="phone"/>}
-					selectedIcon={<Icon type="phone"/>}
-					title="我的"
-					key="我的"
-					selected={this.state.selectedTab === 'yellowTab'}
+					icon={<Icon type="user"/>}
+					selectedIcon={<Icon type="user"/>}
+					title="个人中心"
+					key="个人中心"
+					selected={this.state.selectedTab === Object.keys(HASH_MAP)[3]}
 					onPress={() => {
 						this.setState({
-							selectedTab: 'yellowTab',
+							selectedTab: Object.keys(HASH_MAP)[3],
 						});
+						this.linkTo(HASH_MAP.PROFILE);
 					}}
 				>
-					{this.renderContent('我的')}
+					{this.props.pageContent || '暂无内容'}
 				</TabBar.Item>
 			</TabBar>
 		);
