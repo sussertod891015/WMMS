@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
-import SiteTabBar from '../../components/TabBar';
+import SiteTabBar from '../../components/SiteTabBar';
 
 class HomePage extends Component {
 	render() {

@@ -1,0 +1,17 @@
+.am-card{
+	padding-bottom: .3rem;
+}
+
+.am-card-header{
+	margin-left: .3rem;
+	padding: .3rem .3rem .3rem 0;
+}
+
+.am-card-header-content{
+	font-size: .34rem;
+}
+
+.am-card-body{
+	padding: .3rem;
+	font-size: .28rem;
+}

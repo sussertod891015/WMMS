@@ -10,12 +10,27 @@ const HASH_MAP = {
 	PROFILE: 'Profile'
 };
 
+const getSelectedTab = ()=> {
+	let hash = window.location.hash;
+	let index;
+	Object.values(HASH_MAP).map((hash_, index_)=> {
+		if (index_ > 0) {
+			if (hash.match(hash_)) {
+				index = index_;
+			}
+		}
+	});
+	return index || 0;
+};
+
 class SiteTabBar extends Component {
 	constructor(props) {
 		super(props);
 
+		console.log(getSelectedTab());
+
 		this.state = {
-			selectedTab: Object.keys(HASH_MAP)[0],
+			selectedTab: Object.keys(HASH_MAP)[getSelectedTab()],
 			hidden: false
 		}
 	}

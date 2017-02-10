@@ -1,9 +1,12 @@
 'use strict';
 import React, {Component} from 'react';
+import SiteShopBar from '../../components/SiteShopBar';
 
 const GoShopping = ()=> {
 	return (
-		<div>选择小食</div>
+		<div>
+			<SiteShopBar/>
+		</div>
 	);
 };
 
