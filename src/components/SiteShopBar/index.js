@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import {SegmentedControl, WingBlank} from 'antd-mobile';
+import './style.css';
 
 const SHOP_DATA = {
 	YOGHOURT: '酸奶',
@@ -18,7 +19,7 @@ class SiteShopBar extends Component {
 
 	render() {
 		return (
-			<WingBlank size="sm" className="sc-example">
+			<WingBlank size="sm" className="sc-example siteShopBar">
 				<SegmentedControl
 					values={Object.values(SHOP_DATA)}
 					onChange={this.onChange}

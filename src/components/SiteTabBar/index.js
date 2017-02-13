@@ -1,36 +1,20 @@
 'use strict';
 import React, {Component} from 'react';
 import {TabBar, Icon} from 'antd-mobile';
+import {connect} from 'dva';
+import HASH_MAP from '../../routeMap';
 import './style.css';
 
-const HASH_MAP = {
-	MEETING_CONTENT: '/',
-	GO_SHOPPING: 'GoShopping',
-	MY_PARTNER: 'MyPartner',
-	PROFILE: 'Profile'
-};
-
-const getSelectedTab = ()=> {
-	let hash = window.location.hash;
-	let index;
-	Object.values(HASH_MAP).map((hash_, index_)=> {
-		if (index_ > 0) {
-			if (hash.match(hash_)) {
-				index = index_;
-			}
-		}
-	});
-	return index || 0;
+const style = {
+	paddingBottom: '1rem'
 };
 
 class SiteTabBar extends Component {
 	constructor(props) {
 		super(props);
 
-		console.log(getSelectedTab());
-
 		this.state = {
-			selectedTab: Object.keys(HASH_MAP)[getSelectedTab()],
+			selectedTab: this.props.SiteTabBar.routeName,
 			hidden: false
 		}
 	}
@@ -40,6 +24,7 @@ class SiteTabBar extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<TabBar
 				unselectedTintColor="#949494"
@@ -61,7 +46,9 @@ class SiteTabBar extends Component {
 					}}
 					data-seed="logId"
 				>
-					{this.props.pageContent || '暂无内容'}
+					<div style={style}>
+						{this.props.pageContent || '暂无内容'}
+					</div>
 				</TabBar.Item>
 				<TabBar.Item
 					icon={<Icon type="shopping-cart"/>}
@@ -77,7 +64,9 @@ class SiteTabBar extends Component {
 					}}
 					data-seed="logId1"
 				>
-					{this.props.pageContent || '暂无内容'}
+					<div style={style}>
+						{this.props.pageContent || '暂无内容'}
+					</div>
 				</TabBar.Item>
 				<TabBar.Item
 					icon={<Icon type="team"/>}
@@ -92,7 +81,9 @@ class SiteTabBar extends Component {
 						this.linkTo(HASH_MAP.MY_PARTNER);
 					}}
 				>
-					{this.props.pageContent || '暂无内容'}
+					<div style={style}>
+						{this.props.pageContent || '暂无内容'}
+					</div>
 				</TabBar.Item>
 				<TabBar.Item
 					icon={<Icon type="user"/>}
@@ -107,11 +98,19 @@ class SiteTabBar extends Component {
 						this.linkTo(HASH_MAP.PROFILE);
 					}}
 				>
-					{this.props.pageContent || '暂无内容'}
+					<div style={style}>
+						{this.props.pageContent || '暂无内容'}
+					</div>
 				</TabBar.Item>
 			</TabBar>
 		);
 	}
 }
 
-export default SiteTabBar;
+function mapStateToProps(state) {
+	return {
+		SiteTabBar: state.SiteTabBar
+	};
+}
+
+export default connect(mapStateToProps)(SiteTabBar);
