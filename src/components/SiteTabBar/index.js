@@ -24,7 +24,6 @@ class SiteTabBar extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<TabBar
 				unselectedTintColor="#949494"

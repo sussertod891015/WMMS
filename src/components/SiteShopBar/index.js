@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
+import {connect} from 'dva';
 import {SegmentedControl, WingBlank} from 'antd-mobile';
 import './style.css';
 
@@ -10,24 +11,26 @@ const SHOP_DATA = {
 
 class SiteShopBar extends Component {
 	onChange(e) {
-		console.log(`selectedIndex:${e.nativeEvent.selectedSegmentIndex}`);
-	}
-
-	onValueChange(value) {
-		console.log(value);
+		this.props.dispatch({type: 'SiteShopBar/setCurrId', currId: e.nativeEvent.selectedSegmentIndex});
 	}
 
 	render() {
 		return (
 			<WingBlank size="sm" className="sc-example siteShopBar">
 				<SegmentedControl
+					selectedIndex={this.props.SiteShopBar.currId}
 					values={Object.values(SHOP_DATA)}
-					onChange={this.onChange}
-					onValueChange={this.onValueChange}
+					onChange={(e)=>this.onChange(e)}
 				/>
 			</WingBlank>
 		);
 	}
 }
 
-export default SiteShopBar;
+function mapStateToProps(state) {
+	return {
+		SiteShopBar: state.SiteShopBar
+	};
+}
+
+export default connect(mapStateToProps)(SiteShopBar);

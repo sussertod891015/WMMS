@@ -17,6 +17,7 @@ const app = dva({
 
 // 3. Model
 app.model(require('./models/SiteTabBar'));
+app.model(require('./models/SiteShopBar'));
 
 // 4. Router
 app.router(require('./router'));
