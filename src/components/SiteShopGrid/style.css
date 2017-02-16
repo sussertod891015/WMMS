@@ -1,3 +1,13 @@
-.siteShopGrid{
+.siteShopGrid {
 	margin-top: .3rem;
+	margin-bottom: .1rem;
+}
+
+.am-list-item .am-list-line {
+	padding-right: 0;
+	margin-right: 30px;
+}
+
+.am-flexbox .am-flexbox-item{
+	min-width: .2rem;
 }

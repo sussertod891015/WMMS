@@ -29,7 +29,6 @@ export default {
 			const value = Object.values(HASH_MAP).filter((i)=>(i === routeName))[0];
 			let key;
 			for (var i in HASH_MAP) {
-				console.log(HASH_MAP[i]);
 				if (HASH_MAP[i] === value) {
 					key = i;
 					break;

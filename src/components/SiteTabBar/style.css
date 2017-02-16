@@ -9,3 +9,7 @@
 .am-tab-bar-bar .am-tab-bar-tab-title {
 	font-size: .2rem;
 }
+
+.am-whitespace.am-whitespace-sm {
+	height: .12rem !important;
+}

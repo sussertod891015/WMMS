@@ -1,9 +1,12 @@
 'use strict';
 import React, {Component} from 'react';
+import SiteProfile from '../../components/SiteProfile';
 
 const Profile = ()=> {
 	return (
-		<div>个人中心</div>
+		<div>
+			<SiteProfile/>
+		</div>
 	);
 };
 

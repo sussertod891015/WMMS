@@ -1,0 +1,32 @@
+.am-list-body {
+	border-top: 0;
+}
+
+.am-list-body:after {
+	border-bottom: 0;
+}
+
+.my-list {
+	padding-top: .1rem;
+	padding-bottom: .1rem;
+}
+
+.am-list-item {
+	padding-left: .3rem;
+	min-height: .9rem;
+}
+
+.am-list-item .am-list-line {
+	padding-right: .3rem;
+	min-height: .9rem;
+}
+
+.am-list-item .am-list-line {
+	margin-right: .3rem;
+}
+
+.am-list-item .am-list-line .am-list-content {
+	font-size: .34rem;
+	padding-top: .14rem;
+	padding-bottom: .14rem;
+}

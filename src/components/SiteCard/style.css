@@ -11,7 +11,20 @@
 	font-size: .34rem;
 }
 
+.am-card-header-content img{
+	margin-right: .12rem;
+}
+
+.am-card-header-extra{
+	font-size: .34rem;
+}
+
 .am-card-body{
 	padding: .3rem;
 	font-size: .28rem;
+}
+
+.am-card-footer{
+	padding: 0 .3rem;
+	font-size: .26rem;
 }

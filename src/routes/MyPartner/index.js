@@ -1,9 +1,12 @@
 'use strict';
 import React, {Component} from 'react';
+import SitePeopleList from '../../components/SitePeopleList';
 
 const MyPartner = ()=> {
 	return (
-		<div>我的伙伴</div>
+		<div>
+			<SitePeopleList/>
+		</div>
 	);
 };
 
