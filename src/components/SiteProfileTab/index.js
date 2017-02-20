@@ -45,7 +45,6 @@ class SiteProfileTab extends Component {
 						);
 					})}
 				</Tabs>
-				<WhiteSpace />
 			</div>
 		);
 	}

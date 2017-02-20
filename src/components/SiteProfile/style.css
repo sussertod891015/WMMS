@@ -8,7 +8,11 @@
 
 .am-result {
 	padding-top: .8rem;
-	padding-bottom: .8rem;
+	padding-bottom: .4rem;
+}
+
+.am-result:after {
+	border-bottom: none;
 }
 
 .am-result .am-result-title {
@@ -22,10 +26,10 @@
 	color: #FFCC00;
 }
 
-.txt_before{
+.txt_before {
 	margin-left: .05rem;
 }
 
-.txt_after{
+.txt_after {
 	margin-right: .05rem;
 }
