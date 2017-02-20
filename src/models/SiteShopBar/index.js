@@ -3,7 +3,9 @@
 export default {
 	namespace: 'SiteShopBar',
 	state: {
-		currId: 0
+		tabCurrId: 0,
+		shopCurrId: 0,
+		modalVisible: false
 	},
 	effects: {
 		// *save({payload: todo}, {put, call}) {
@@ -17,8 +19,11 @@ export default {
 		// 	// 保存数据到 state
 		// 	return [...state, todo];
 		// },
-		setCurrId(state, {currId}){
-			return {...state, currId: currId}
+		setTabCurrId(state, {tabCurrId}){
+			return {...state, tabCurrId}
+		},
+		toggleModal(state, {shopCurrId, modalVisible}){
+			return {...state, shopCurrId, modalVisible}
 		}
 	}
 };

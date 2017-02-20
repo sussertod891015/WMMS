@@ -18,7 +18,7 @@ export default {
 		// 	return [...state, todo];
 		// },
 		setCurrId(state, {currId}){
-			return {...state, currId: currId}
+			return {...state, currId}
 		}
 	}
 };

@@ -11,14 +11,14 @@ const SHOP_DATA = {
 
 class SiteShopBar extends Component {
 	onChange(e) {
-		this.props.dispatch({type: 'SiteShopBar/setCurrId', currId: e.nativeEvent.selectedSegmentIndex});
+		this.props.dispatch({type: 'SiteShopBar/setTabCurrId', tabCurrId: e.nativeEvent.selectedSegmentIndex});
 	}
 
 	render() {
 		return (
 			<WingBlank size="sm" className="sc-example siteShopBar">
 				<SegmentedControl
-					selectedIndex={this.props.SiteShopBar.currId}
+					selectedIndex={this.props.SiteShopBar.tabCurrId}
 					values={Object.values(SHOP_DATA)}
 					onChange={(e)=>this.onChange(e)}
 				/>
