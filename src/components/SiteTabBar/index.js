@@ -23,6 +23,16 @@ class SiteTabBar extends Component {
 		window.location.hash = hash;
 	}
 
+	getChildren() {
+		return Object.values(HASH_MAP).map((item, index)=> {
+			let browserHash = window.location.hash;
+			let hash = browserHash.substring(1, browserHash.indexOf('?'));
+			if (item === hash) {
+				return index;
+			}
+		});
+	}
+
 	render() {
 		return (
 			<TabBar
@@ -43,10 +53,9 @@ class SiteTabBar extends Component {
 						});
 						this.linkTo(HASH_MAP.MEETING_CONTENT);
 					}}
-					data-seed="logId"
 				>
 					<div style={style}>
-						{this.props.pageContent || '暂无内容'}
+						{this.getChildren().includes(0) ? this.props.pageContent : '暂无内容'}
 					</div>
 				</TabBar.Item>
 				<TabBar.Item
@@ -61,10 +70,9 @@ class SiteTabBar extends Component {
 						});
 						this.linkTo(HASH_MAP.GO_SHOPPING);
 					}}
-					data-seed="logId1"
 				>
 					<div style={style}>
-						{this.props.pageContent || '暂无内容'}
+						{this.getChildren().includes(1) ? this.props.pageContent : '暂无内容'}
 					</div>
 				</TabBar.Item>
 				<TabBar.Item
@@ -81,7 +89,7 @@ class SiteTabBar extends Component {
 					}}
 				>
 					<div style={style}>
-						{this.props.pageContent || '暂无内容'}
+						{this.getChildren().includes(2) ? this.props.pageContent : '暂无内容'}
 					</div>
 				</TabBar.Item>
 				<TabBar.Item
@@ -98,7 +106,7 @@ class SiteTabBar extends Component {
 					}}
 				>
 					<div style={style}>
-						{this.props.pageContent || '暂无内容'}
+						{this.getChildren().includes(3) ? this.props.pageContent : '暂无内容'}
 					</div>
 				</TabBar.Item>
 			</TabBar>

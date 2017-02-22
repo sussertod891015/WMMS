@@ -2,12 +2,14 @@
 import React, {Component} from 'react';
 import SiteProfile from '../../components/SiteProfile';
 
-const Profile = ()=> {
-	return (
-		<div>
-			<SiteProfile/>
-		</div>
-	);
-};
+class Profile extends Component {
+	render() {
+		return (
+			<div>
+				<SiteProfile/>
+			</div>
+		);
+	};
+}
 
 export default Profile;

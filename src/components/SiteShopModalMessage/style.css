@@ -1,0 +1,7 @@
+.shop_name, .shop_counts, .shop_hot, .set_default {
+	padding: .08rem 0;
+}
+
+.set_default{
+	font-size: .3rem;
+}

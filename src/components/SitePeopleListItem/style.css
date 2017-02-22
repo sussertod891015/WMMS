@@ -1,0 +1,58 @@
+.headimg img {
+	width: auto;
+	height: 1.5rem;
+}
+
+.am-accordion.people_list .am-accordion-item .am-accordion-header i {
+	top: 50%;
+	right: .3rem;
+	width: .3rem;
+	height: .3rem;
+	margin-top: -.15rem;
+}
+
+.check_desc {
+	position: absolute;
+	top: 50%;
+	right: 1rem;
+	transform: translate3d(0, -50%, 0);
+}
+
+.name {
+	width:48%;
+	height: .3rem;
+	font-size: .28rem;
+	line-height: .3rem;
+	text-align: center;
+}
+
+.am-accordion.people_list .am-accordion-item .am-accordion-header {
+	height: 1.8rem;
+	padding: .3rem;
+}
+
+.am-accordion.people_list .am-accordion-item .am-accordion-header {
+	font-size: .34rem;
+	line-height: normal;
+}
+
+.people_list .am-list-item .am-list-line .am-list-extra {
+	text-align: left;
+}
+
+.info_desc {
+	font-size: .26rem;
+}
+
+.info_desc > div{
+	padding-top: .05rem;
+	padding-bottom: .05rem;
+}
+
+.info_desc > div:first-child{
+	padding-top: 0;
+}
+
+.people_list .am-list-item .am-list-line .am-list-extra{
+	flex-basis: 90%;
+}
