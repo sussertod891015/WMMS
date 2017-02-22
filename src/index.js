@@ -20,6 +20,7 @@ app.model(require('./models/SiteTabBar'));
 app.model(require('./models/SiteShopBar'));
 app.model(require('./models/SiteProfileTab'));
 app.model(require('./models/SiteProfileDatePicker'));
+app.model(require('./models/SiteMeetingContentLikeModal'));
 
 // 4. Router
 app.router(require('./router'));

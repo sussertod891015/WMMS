@@ -1,6 +1,7 @@
 'use strict';
 import React, {Component} from 'react';
 import SiteCard from '../../components/SiteCard';
+import SiteMeetingContentLikeModal from '../../components/SiteMeetingContentLikeModal';
 
 class MeetingContent extends Component {
 	render() {
@@ -10,6 +11,7 @@ class MeetingContent extends Component {
 				<SiteCard/>
 				<SiteCard/>
 				<SiteCard/>
+				<SiteMeetingContentLikeModal/>
 			</div>
 		);
 	};

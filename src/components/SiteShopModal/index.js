@@ -16,21 +16,21 @@ class SiteShopModal extends Component {
 
 	render() {
 		return (
-			<Modal
-				title="小食信息"
-				transparent
-				closable={false}
-				visible={this.props.SiteShopBar.modalVisible}
-				onClose={()=>this.onClose()}
-				footer={[{
-					text: '取消', onPress: () => {
-						this.onClose();
-					}
-				},{
-					text: '确认下单', onPress: () => {
-						this.onClose();
-					}
-				}]}
+			<Modal title="小食信息"
+				   className="shop_modal"
+				   transparent
+				   closable={false}
+				   visible={this.props.SiteShopBar.modalVisible}
+				   onClose={()=>this.onClose()}
+				   footer={[{
+					   text: '取消', onPress: () => {
+						   this.onClose();
+					   }
+				   }, {
+					   text: '确认下单', onPress: () => {
+						   this.onClose();
+					   }
+				   }]}
 			>
 				<div className="my_modal">
 					<Card full>

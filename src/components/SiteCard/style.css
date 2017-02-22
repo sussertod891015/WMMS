@@ -1,30 +1,35 @@
-.am-card{
+.am-card {
 	padding-bottom: .3rem;
 }
 
-.am-card-header{
+.am-card-header {
 	margin-left: .3rem;
 	padding: .3rem .3rem .3rem 0;
 }
 
-.am-card-header-content{
+.am-card-header-content {
 	font-size: .34rem;
 }
 
-.am-card-header-content img{
+.am-card-header-content img {
 	margin-right: .12rem;
 }
 
-.am-card-header-extra{
-	font-size: .34rem;
+.am-card-header-extra {
+	/*font-size: .34rem;*/
+	font-size: .28rem;
 }
 
-.am-card-body{
+.am-card-body {
 	padding: .3rem;
 	font-size: .28rem;
 }
 
-.am-card-footer{
+.am-card-footer {
 	padding: 0 .3rem;
 	font-size: .26rem;
+}
+
+.meetingContent_card .am-card-footer-extra {
+	flex: .6;
 }
