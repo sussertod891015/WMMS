@@ -1,5 +1,5 @@
 'use strict';
-import HASH_MAP from '../../routeMap';
+import {HASH_MAP} from '../../utils/config';
 
 export default {
 	namespace: 'SiteTabBar',

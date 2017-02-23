@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 import {List, Accordion, Icon} from 'antd-mobile';
+import {PEOPLE_INFO} from '../../utils/config';
 import './style.css';
 
 const getHeadImg = (name, txt)=> {
@@ -17,10 +18,10 @@ const getHeadImg = (name, txt)=> {
 const getInfoDesc = ()=> {
 	return (
 		<div className="info_desc">
-			<div className="lastest_shared">最近一次分享：Angular</div>
-			<div className="shared_count">累计分享次数：10次</div>
-			<div className="shared_liked">累计获得赞数：20个<Icon type="star"/></div>
-			<div className="best_loved">最喜爱的小食：酸奶</div>
+			<div className="lastest_shared">{PEOPLE_INFO.LAST_SHARED}：Angular</div>
+			<div className="shared_count">{PEOPLE_INFO.SHARED_COUNT}：10次</div>
+			<div className="shared_liked">{PEOPLE_INFO.STAR_COUNT}：20 <Icon type="star"/></div>
+			<div className="best_loved">{PEOPLE_INFO.BEST_LOVE}：酸奶</div>
 		</div>
 	);
 };
@@ -66,7 +67,7 @@ class SitePeopleListItem extends Component {
 		return (
 			<Accordion onChange={(arr)=>this.onChange(arr)} className="my-accordion people_list">
 				{peopleList.map((name, peopleIndex)=> {
-					return getAccordionPanel(peopleIndex, name, _this.state.txtArr[peopleIndex] ? '收起' : '查看');
+					return getAccordionPanel(peopleIndex, name, _this.state.txtArr[peopleIndex] ? PEOPLE_INFO.BTN_NAME[1] : PEOPLE_INFO.BTN_NAME[0]);
 				})}
 			</Accordion>
 		);
