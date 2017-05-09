@@ -8,14 +8,23 @@ import './style.css';
 
 class SiteStartUp extends Component {
 	handleClick() {
-		this.props.dispatch({
-			type: 'SiteHomePage/loadingDone',
-			loadingFinish: true
-		});
+		// this.props.dispatch({
+		// 	type: 'SiteHomePage/loadingDone',
+		// 	loadingFinish: true
+		// });
+		// this.props.dispatch({
+		// 	type: 'SiteHomePage/fetchData'
+		// });
 	}
 
 	componentWillUnmount() {
 		window.location.hash = Object.values(HASH_MAP)[0];
+	}
+
+	componentDidMount(){
+		this.props.dispatch({
+			type: 'SiteHomePage/fetchData'
+		});
 	}
 
 	render() {

@@ -28,7 +28,7 @@ export default {
 		setTab(state, {routeName}){
 			const value = Object.values(HASH_MAP).filter((i)=>(i === routeName))[0];
 			let key;
-			for (var i in HASH_MAP) {
+			for (let i in HASH_MAP) {
 				if (HASH_MAP[i] === value) {
 					key = i;
 					break;
