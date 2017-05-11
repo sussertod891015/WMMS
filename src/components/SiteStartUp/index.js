@@ -1,35 +1,25 @@
 'use strict';
 import React, {Component} from 'react';
-import {Result, Icon} from 'antd-mobile';
+import {Result, Icon, Toast} from 'antd-mobile';
 import {HASH_MAP} from '../../utils/config';
 import {connect} from 'dva';
 import '../../public/startUpIcon/iconfont.css';
 import './style.css';
 
 class SiteStartUp extends Component {
-	handleClick() {
-		// this.props.dispatch({
-		// 	type: 'SiteHomePage/loadingDone',
-		// 	loadingFinish: true
-		// });
-		// this.props.dispatch({
-		// 	type: 'SiteHomePage/fetchData'
-		// });
-	}
-
 	componentWillUnmount() {
 		window.location.hash = Object.values(HASH_MAP)[0];
 	}
 
-	componentDidMount(){
+	componentWillMount() {
 		this.props.dispatch({
-			type: 'SiteHomePage/fetchData'
+			type: 'SiteData/fetchMeetingContentData'
 		});
 	}
 
 	render() {
 		return (
-			<div className="start_up_container" onClick={()=>this.handleClick()}>
+			<div className="start_up_container">
 				<Result
 					img={<i className="iconfont">&#xe614;</i>}
 					title="WMMS"
@@ -42,7 +32,8 @@ class SiteStartUp extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteHomePage: state.SiteHomePage
+		SiteHomePage: state.SiteHomePage,
+		SiteData: state.SiteData
 	}
 }
 

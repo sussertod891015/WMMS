@@ -6,11 +6,7 @@ export default {
 		currId: 0
 	},
 	effects: {
-		// *save({payload: todo}, {put, call}) {
-		// 	// 调用 saveTodoToServer，成功后触发 `add` action 保存到 state
-		// 	yield call(saveTodoToServer, todo);
-		// 	yield put({type: 'add', payload: todo});
-		// }
+
 	},
 	reducers: {
 		// add(state, {id: todo}) {

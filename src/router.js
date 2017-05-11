@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {Router, Route, IndexRoute} from 'dva/router';
 import HomePage from './routes/HomePage';
 import MeetingContent from './routes/MeetingContent';

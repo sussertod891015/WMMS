@@ -1,12 +1,29 @@
 'use strict';
+import React, {Component} from 'react';
+import {connect} from 'dva';
 import SitePeopleList from '../../components/SitePeopleList';
 
-const MyPartner = ()=> {
-	return (
-		<div>
-			<SitePeopleList/>
-		</div>
-	);
-};
+class MyPartner extends Component {
+	componentWillMount() {
+		this.props.dispatch({
+			type: 'SiteData/fetchMyPartnerData'
+		});
+	}
 
-export default MyPartner;
+	render() {
+		return (
+			<div>
+				<SitePeopleList/>
+			</div>
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		SiteData: state.SiteData
+	};
+}
+
+export default connect(mapStateToProps)(MyPartner);
+

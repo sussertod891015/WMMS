@@ -5,17 +5,6 @@ import SiteShopModal from '../SiteShopModal';
 import {connect} from 'dva';
 import './style.css';
 
-const data = [
-	Array.from(new Array(9)).map((_val, i) => ({
-		icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
-		text: `名字${i}`,
-	})),
-	Array.from(new Array(3)).map((_val, i) => ({
-		icon: 'https://os.alipayobjects.com/rmsportal/IptWdCkrtkAUfjE.png',
-		text: `哈哈${i}`,
-	}))
-];
-
 class SiteShopGrid extends Component {
 	showModal(_el, index) {
 		this.props.dispatch({
@@ -25,13 +14,19 @@ class SiteShopGrid extends Component {
 		});
 	}
 
-	render() {
+	getData() {
 		const tabCurrId = this.props.SiteShopBar.tabCurrId;
+		return this.props.SiteData.GoShoppingData.data.map((data, index)=> {
+			return data['tabData'];
+		})[tabCurrId];
+	}
+
+	render() {
 		return (
 			<div className="siteShopGrid">
 				<WingBlank size="sm">
 					<Grid size="lg"
-						  data={data[tabCurrId]}
+						  data={this.getData()}
 						  columnNum={2}
 						  onClick={(_el, index) => this.showModal(_el, index)}
 						  renderItem={(dataItem, index) => (
@@ -53,7 +48,8 @@ class SiteShopGrid extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteShopBar: state.SiteShopBar
+		SiteShopBar: state.SiteShopBar,
+		SiteData: state.SiteData
 	}
 }
 

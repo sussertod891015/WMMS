@@ -30,7 +30,8 @@ class SiteProfileTab extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteProfileTab: state.SiteProfileTab
+		SiteProfileTab: state.SiteProfileTab,
+		SiteData: state.SiteData
 	};
 }
 

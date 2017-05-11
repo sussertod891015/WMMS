@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
+import {connect} from 'dva';
 import {findDOMNode} from 'react-dom';
 import {List, Accordion, Icon} from 'antd-mobile';
 import {PEOPLE_INFO} from '../../utils/config';
@@ -15,33 +16,28 @@ const getHeadImg = (name, txt)=> {
 	);
 };
 
-const getInfoDesc = ()=> {
+const getInfoDesc = (data)=> {
 	return (
 		<div className="info_desc">
-			<div className="lastest_shared">{PEOPLE_INFO.LAST_SHARED}：Angular</div>
-			<div className="shared_count">{PEOPLE_INFO.SHARED_COUNT}：10次</div>
-			<div className="shared_liked">{PEOPLE_INFO.STAR_COUNT}：20 <Icon type="star"/></div>
-			<div className="best_loved">{PEOPLE_INFO.BEST_LOVE}：酸奶</div>
+			<div className="lastest_shared">{PEOPLE_INFO.LAST_SHARED}：{data['lastShared']}</div>
+			<div className="shared_count">{PEOPLE_INFO.SHARED_COUNT}：{data['shareCounts']} 次</div>
+			<div className="shared_liked">
+				{PEOPLE_INFO.STAR_COUNT}：{data['totalScore']} <Icon type="star"/>
+			</div>
+			<div className="best_loved">{PEOPLE_INFO.BEST_LOVE}：{data['bestLove']}</div>
 		</div>
 	);
 };
 
-const getAccordionPanel = (index, name, txt)=> {
+const getAccordionPanel = (index, data, txt)=> {
 	return (
-		<Accordion.Panel ref={`ap_${index}`} key={index} header={getHeadImg(name, txt)}>
+		<Accordion.Panel ref={`ap_${index}`} key={index} header={getHeadImg(data['partnerName'], txt)}>
 			<List className="my-list">
-				<List.Item extra={getInfoDesc()}/>
+				<List.Item extra={getInfoDesc(data['partnerData'])}/>
 			</List>
 		</Accordion.Panel>
 	);
 };
-
-const peopleList = [
-	'YINGHAO.LIU',
-	'MENGTIAN.WEN',
-	'XUEJIE.CUI',
-	'XIANG.LU'
-];
 
 class SitePeopleListItem extends Component {
 	constructor(props) {
@@ -66,12 +62,18 @@ class SitePeopleListItem extends Component {
 		let _this = this;
 		return (
 			<Accordion onChange={(arr)=>this.onChange(arr)} className="my-accordion people_list">
-				{peopleList.map((name, peopleIndex)=> {
-					return getAccordionPanel(peopleIndex, name, _this.state.txtArr[peopleIndex] ? PEOPLE_INFO.BTN_NAME[1] : PEOPLE_INFO.BTN_NAME[0]);
+				{this.props.SiteData.MyPartnerData.data.map((people, peopleIndex)=> {
+					return getAccordionPanel(peopleIndex, people, _this.state.txtArr[peopleIndex] ? PEOPLE_INFO.BTN_NAME[1] : PEOPLE_INFO.BTN_NAME[0]);
 				})}
 			</Accordion>
 		);
 	}
 }
 
-export default SitePeopleListItem;
+function mapStateToProps(state) {
+	return {
+		SiteData: state.SiteData
+	};
+}
+
+export default connect(mapStateToProps)(SitePeopleListItem);

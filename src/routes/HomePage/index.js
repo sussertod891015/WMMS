@@ -8,12 +8,12 @@ class HomePage extends Component {
 	render() {
 		return (
 			<div>
-				{
-					this.props.SiteHomePage.loadingFinish ?
+				{/*{*/}
+					{/*this.props.SiteData.loadingFinish ?*/}
 						<SiteTabBar pageContent={this.props.children}/>
-						:
-						<SiteStartUp/>
-				}
+						{/*:*/}
+						{/*<SiteStartUp/>*/}
+				{/*}*/}
 			</div>
 		);
 	}
@@ -21,7 +21,7 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteHomePage: state.SiteHomePage
+		SiteData: state.SiteData
 	}
 }
 

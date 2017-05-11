@@ -1,24 +1,46 @@
 'use strict';
+import {Toast} from 'antd-mobile';
 import {HASH_MAP} from '../../utils/config';
 
 export default {
 	namespace: 'SiteTabBar',
 	state: {
-		routeName: '/'
+		routeName: HASH_MAP.MEETING_CONTENT
 	},
 	subscriptions: {
-		setTab({history, dispatch}){
+		subScriptTab({history, dispatch}){
 			return history.listen(({pathname}) => {
+				// dispatch({type: 'fetchPageData', routeName: pathname});
 				dispatch({type: 'setTab', routeName: pathname});
 			});
 		}
 	},
 	effects: {
-		// *save({payload: todo}, {put, call}) {
-		// 	// 调用 saveTodoToServer，成功后触发 `add` action 保存到 state
-		// 	yield call(saveTodoToServer, todo);
-		// 	yield put({type: 'add', payload: todo});
-		// }
+		*fetchPageData(action, {put, call, select}) {
+			if (action.routeName === HASH_MAP.MEETING_CONTENT) {
+				yield put({
+					type: 'setTab',
+					routeName: action.routeName
+				});
+			} else {
+				Toast.loading('加载中...', 0, () => {
+				});
+
+				yield call(()=> {
+					return new Promise(resolve=> {
+						setTimeout(()=> {
+							resolve();
+						}, 2000);
+					})
+				}, action);
+
+				yield put({
+					type: 'setTab',
+					routeName: action.routeName
+				});
+				yield Toast.hide();
+			}
+		}
 	},
 	reducers: {
 		// add(state, {id: todo}) {
