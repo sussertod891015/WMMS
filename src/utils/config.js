@@ -40,20 +40,17 @@ const PEOPLE_INFO = {
 const PROFILE_TAB_DATA = [
 	{
 		SiteProfileShopHistory: {
-			TAB_NAME: '小食记录',
-			TAB_COMPONENT: <SiteProfileShopHistory/>
+			TAB_NAME: '小食记录'
 		}
 	},
 	{
 		SiteProfileShopBestLove: {
-			TAB_NAME: '最爱小食',
-			TAB_COMPONENT: <SiteProfileShopBestLove/>
+			TAB_NAME: '最爱小食'
 		}
 	},
 	{
-		SiteProfileShopBestLove: {
-			TAB_NAME: '分享历史',
-			TAB_COMPONENT: <SiteProfileMyMeetingContent/>
+		SiteProfileMyMeetingContent: {
+			TAB_NAME: '分享历史'
 		}
 	}
 ];

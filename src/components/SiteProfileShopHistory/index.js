@@ -2,11 +2,13 @@
 import React, {Component} from 'react';
 import {List} from 'antd-mobile';
 
-const SiteProfileShopHistory = ()=> {
+const SiteProfileShopHistory = (props)=> {
 	return (
 		<div>
-			<List.Item extra="待评价" arrow="horizontal" onClick={() => {
-			}}>酸奶</List.Item>
+			{props.data.map((content, index)=> {
+				return <List.Item key={index} extra="待评价" arrow="horizontal" onClick={() => {
+				}}>{content}</List.Item>
+			})}
 		</div>
 	);
 };

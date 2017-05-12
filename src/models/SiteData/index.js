@@ -1,4 +1,7 @@
 'use strict';
+
+import {Toast} from 'antd-mobile';
+
 const getTimestamp = ()=> {
 	return Date.parse(new Date()) / 1000;
 };
@@ -8,27 +11,11 @@ export default {
 	state: {
 		loadingFinish: false,
 		MeetingContentData: {
-			data: [
-				{
-					title: '',
-					name: '',
-					desc: '',
-					date: ''
-				}
-			],
+			data: [],
 			timestamp: ''
 		},
 		GoShoppingData: {
-			data: [
-				{
-					tabName: '',
-					tabData: []
-				},
-				{
-					tabName: '',
-					tabData: []
-				}
-			],
+			data: [],
 			timestamp: ''
 		},
 		MyPartnerData: {
@@ -40,7 +27,12 @@ export default {
 				username: '未登录',
 				avatar: '',
 				stars: 0,
-				isAdmin: false
+				isAdmin: false,
+				tabData: {
+					ProfileShopHistoryData: [],
+					ProfileShopBestLoveData: [],
+					ProfileMyMeetingContentData: []
+				}
 			},
 			timestamp: ''
 		}
@@ -50,6 +42,8 @@ export default {
 			let currTime = getTimestamp();
 			let prevTime = yield select(state => state.SiteData.MeetingContentData.timestamp);
 			if (prevTime === '' || currTime - prevTime >= 60) {
+				Toast.loading('加载中...');
+
 				yield put({type: 'loadingApp', loadingFinish: false});
 
 				yield call(()=> {
@@ -84,12 +78,16 @@ export default {
 					type: 'loadingApp',
 					loadingFinish: true
 				});
+
+				Toast.hide();
 			}
 		},
 		*fetchGoShoppingData(action, {put, call, select}) {
 			let currTime = getTimestamp();
 			let prevTime = yield select(state => state.SiteData.GoShoppingData.timestamp);
 			if (prevTime === '' || currTime - prevTime >= 60) {
+				Toast.loading('加载中...');
+
 				yield put({type: 'loadingApp', loadingFinish: false});
 
 				yield call(()=> {
@@ -126,12 +124,16 @@ export default {
 					type: 'loadingApp',
 					loadingFinish: true
 				});
+
+				Toast.hide();
 			}
 		},
 		*fetchMyPartnerData(action, {put, call, select}) {
 			let currTime = getTimestamp();
 			let prevTime = yield select(state => state.SiteData.MyPartnerData.timestamp);
 			if (prevTime === '' || currTime - prevTime >= 60) {
+				Toast.loading('加载中...');
+
 				yield put({type: 'loadingApp', loadingFinish: false});
 
 				yield call(()=> {
@@ -190,12 +192,16 @@ export default {
 					type: 'loadingApp',
 					loadingFinish: true
 				});
+
+				Toast.hide();
 			}
 		},
 		*fetchProfileData(action, {put, call, select}) {
 			let currTime = getTimestamp();
 			let prevTime = yield select(state => state.SiteData.ProfileData.timestamp);
 			if (prevTime === '' || currTime - prevTime >= 60) {
+				Toast.loading('加载中...');
+
 				yield put({type: 'loadingApp', loadingFinish: false});
 
 				yield call(()=> {
@@ -212,7 +218,24 @@ export default {
 							username: 'XUEJIE.CUI',
 							avatar: 'https://zos.alipayobjects.com/rmsportal/yRUDxcBPvzZTDHK.png',
 							stars: 1,
-							isAdmin: true
+							isAdmin: true,
+							tabData: {
+								ProfileShopHistoryData: [
+									'酸奶'
+								],
+								ProfileShopBestLoveData: [
+									'最爱小食',
+									'最爱小食'
+								],
+								ProfileMyMeetingContentData: [
+									{
+										title: '分享标题',
+										name: '分享者',
+										desc: '分享内容',
+										date: '分享时间'
+									}
+								]
+							}
 						},
 						timestamp: getTimestamp()
 					}
@@ -222,6 +245,8 @@ export default {
 					type: 'loadingApp',
 					loadingFinish: true
 				});
+
+				Toast.hide();
 			}
 		}
 	},

@@ -2,12 +2,13 @@
 import React, {Component} from 'react';
 import SiteCard from '../SiteCard';
 
-const SiteProfileMyMeetingContent = ()=> {
+const SiteProfileMyMeetingContent = (props)=> {
 	return (
 		<div>
-			<SiteCard/>
-			<SiteCard/>
-			<SiteCard/>
+			{props.data.map((content, index)=> {
+				const {title, name, date, desc} = content;
+				return <SiteCard key={index} title={title} name={name} date={date} desc={desc}/>
+			})}
 		</div>
 	);
 };
