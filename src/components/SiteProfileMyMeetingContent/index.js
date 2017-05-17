@@ -6,8 +6,8 @@ const SiteProfileMyMeetingContent = (props)=> {
 	return (
 		<div>
 			{props.data.map((content, index)=> {
-				const {title, name, date, desc} = content;
-				return <SiteCard key={index} title={title} name={name} date={date} desc={desc}/>
+				const {title, name, date, desc,likedCount} = content;
+				return <SiteCard key={index} title={title} name={name} date={date} desc={desc} likedCount={likedCount}/>
 			})}
 		</div>
 	);

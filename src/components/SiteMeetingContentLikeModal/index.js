@@ -21,6 +21,17 @@ class SiteMeetingContentLikeModal extends Component {
 		});
 	}
 
+	onConfirm() {
+		const likedCount = this.state.likeCountIndex;
+		const meetingCardId = this.props.SiteMeetingContentLikeModal.meetingCardId;
+		this.props.dispatch({
+			type: 'SiteData/setMeetingContentLikedCount',
+			meetingCardId: meetingCardId,
+			likedCount: likedCount
+		});
+		this.onClose();
+	}
+
 	setLikeCount(index) {
 		this.setState({
 			likeCountIndex: index + 1
@@ -41,7 +52,7 @@ class SiteMeetingContentLikeModal extends Component {
 					   }
 				   }, {
 					   text: '确认', onPress: () => {
-						   this.onClose();
+						   this.onConfirm();
 					   }
 				   }]}
 			>
@@ -61,7 +72,8 @@ class SiteMeetingContentLikeModal extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteMeetingContentLikeModal: state.SiteMeetingContentLikeModal
+		SiteMeetingContentLikeModal: state.SiteMeetingContentLikeModal,
+		SiteData: state.SiteData
 	}
 }
 

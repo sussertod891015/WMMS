@@ -9,7 +9,7 @@ class SiteShopGrid extends Component {
 	showModal(_el, index) {
 		this.props.dispatch({
 			type: 'SiteShopBar/toggleModal',
-			shopCurrId: index,
+			shopCurrId: _el.id,
 			modalVisible: true
 		});
 	}
@@ -22,24 +22,30 @@ class SiteShopGrid extends Component {
 	}
 
 	render() {
+		const {currShopId, defaultShopId} = this.props.SiteData.GoShoppingData;
+		const {tabCurrId} = this.props.SiteShopBar;
+		const __shopId = currShopId.length === 0 ? defaultShopId : currShopId;
 		return (
 			<div className="siteShopGrid">
-				<WingBlank size="sm">
-					<Grid size="lg"
-						  data={this.getData()}
-						  columnNum={2}
-						  onClick={(_el, index) => this.showModal(_el, index)}
-						  renderItem={(dataItem, index) => (
-							  <div style={{margin: '0.16rem', background: '#f7f7f7', textAlign: 'center'}}>
-								  <img src="http://img3.imgtn.bdimg.com/it/u=1395349040,1373069980&fm=214&gp=0.jpg"
-									   style={{width: '80%', margin: '0.12rem'}}/>
-								  <div style={{background: 'rgba(0, 0, 0, 0.1)', padding: '0.08rem'}}>
-									  <span>{index + 1}.{dataItem.text}</span>
-								  </div>
+				<Grid size="lg"
+					  data={this.getData()}
+					  columnNum={2}
+					  onClick={(_el, index) => this.showModal(_el, index)}
+					  renderItem={(dataItem, index) => (
+						  <div style={{
+							  margin: '0.16rem',
+							  background: '#f7f7f7',
+							  textAlign: 'center',
+							  boxShadow: tabCurrId === __shopId[0] && dataItem.id === __shopId[1] ? '0 0 .2rem rgba(0,0,0,.7)' : ''
+						  }}>
+							  <img src={dataItem.icon}
+								   style={{width: '80%', margin: '0.12rem'}}/>
+							  <div style={{background: 'rgba(0, 0, 0, 0.1)', padding: '0.08rem'}}>
+								  <span>id:{dataItem.id} {dataItem.text}</span>
 							  </div>
-						  )}
-					/>
-				</WingBlank>
+						  </div>
+					  )}
+				/>
 				<SiteShopModal/>
 			</div>
 		);

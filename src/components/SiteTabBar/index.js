@@ -55,7 +55,8 @@ class SiteTabBar extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteTabBar: state.SiteTabBar
+		SiteTabBar: state.SiteTabBar,
+		SiteData: state.SiteData
 	};
 }
 

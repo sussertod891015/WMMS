@@ -1,13 +1,12 @@
 'use strict';
-import SiteProfileShopHistory from '../components/SiteProfileShopHistory';
-import SiteProfileShopBestLove from '../components/SiteProfileShopBestLove';
-import SiteProfileMyMeetingContent from '../components/SiteProfileMyMeetingContent';
 
 const HASH_MAP = {
 	MEETING_CONTENT: '/',
 	GO_SHOPPING: '/GoShopping',
 	MY_PARTNER: '/MyPartner',
-	PROFILE: '/Profile'
+	PROFILE: '/Profile',
+	ADMIN: '/Admin',
+	ADMIN_PEOPLE: '/AdminPeople'
 };
 
 const TAB_BAR = [
@@ -26,6 +25,10 @@ const TAB_BAR = [
 	{
 		NAME: '个人中心',
 		ICON_TYPE: 'user'
+	},
+	{
+		NAME: '后台管理',
+		ICON_TYPE: 'book'
 	}
 ];
 

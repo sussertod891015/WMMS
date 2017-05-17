@@ -1,0 +1,41 @@
+.my_modal .am-card {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.shop_modal.am-modal.am-modal-transparent .am-modal-content .am-modal-body {
+	padding: 0;
+	font-size: .26rem;
+}
+
+.am-modal.am-modal-transparent .am-modal-content {
+	padding-top: 0;
+	border-radius: .14rem;
+}
+
+.am-modal-title {
+	font-size: .34rem;
+}
+
+.am-modal-header {
+	padding: .3rem;
+}
+
+.my_modal .am-card-header {
+	font-size: .34rem;
+}
+
+.am-modal-button-group-v .am-modal-button {
+	font-size: .32rem;
+	height: 1rem;
+	line-height: 1rem;
+}
+
+.my_modal .am-card-header-content img {
+	width: 2rem;
+}
+
+.my_modal .am-card-header-extra {
+	text-align: left;
+	font-size: .3rem;
+}

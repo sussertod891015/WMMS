@@ -33,3 +33,7 @@
 .meetingContent_card .am-card-footer-extra {
 	flex: .6;
 }
+
+.am-button{
+	border-radius: 0;
+}

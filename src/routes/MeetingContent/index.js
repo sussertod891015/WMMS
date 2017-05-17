@@ -15,8 +15,18 @@ class MeetingContent extends Component {
 		return (
 			<div>
 				{this.props.SiteData.MeetingContentData.data.map((item, index)=> {
-					const {title, name, desc, date} = item;
-					return <SiteCard key={index} title={title} name={name} desc={desc} date={date}/>
+					const {title, name, previewImg, desc, date, voted, likedCount, meetingCardId} = item;
+					return <SiteCard
+						key={index}
+						previewImg={previewImg}
+						title={title}
+						name={name}
+						desc={desc}
+						date={date}
+						voted={voted}
+						likedCount={likedCount}
+						meetingCardId={meetingCardId}
+					/>
 				})}
 				<SiteMeetingContentLikeModal/>
 			</div>

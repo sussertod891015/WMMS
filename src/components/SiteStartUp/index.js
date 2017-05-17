@@ -13,7 +13,7 @@ class SiteStartUp extends Component {
 
 	componentWillMount() {
 		this.props.dispatch({
-			type: 'SiteData/fetchMeetingContentData'
+			type: 'SiteData/fetchAppData'
 		});
 	}
 
@@ -21,7 +21,11 @@ class SiteStartUp extends Component {
 		return (
 			<div className="start_up_container">
 				<Result
-					img={<i className="iconfont">&#xe614;</i>}
+					img={
+						<div>
+							<i className="iconfont icon-gift"/>
+						</div>
+					}
 					title="WMMS"
 					message="Copyright © 2017 Sussertod. All rights reserved."
 				/>

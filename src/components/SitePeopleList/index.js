@@ -8,11 +8,9 @@ class SitePeopleList extends Component {
 	render() {
 		return (
 			<div>
-				<WingBlank size="sm">
-					<List className="my-list">
-						<SitePeopleListItem/>
-					</List>
-				</WingBlank>
+				<List className="my-list">
+					<SitePeopleListItem/>
+				</List>
 			</div>
 		);
 	}

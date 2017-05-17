@@ -1,0 +1,35 @@
+.am-list-item .am-list-line {
+	padding-right: 0;
+}
+
+.admin_btn {
+	background-color: transparent;
+	color: #ccc;
+	border: none;
+	text-align: right;
+}
+
+.admin_btn > span {
+	font-size: .28rem;
+}
+
+.admin_btn.am-button-primary.am-button-active {
+	background-color: transparent;
+}
+
+.siteAdmin_btn_group {
+	margin: .3rem;
+}
+
+.my-admin-people-list .am-list-item .am-list-line .am-list-extra {
+	font-size: .28rem;
+}
+
+.datepicker-item.am-list-item .am-list-line .am-list-extra {
+	position: relative;
+	overflow: visible;
+}
+
+.am-list-item .am-list-line-multiple{
+	padding: .25rem 0;
+}

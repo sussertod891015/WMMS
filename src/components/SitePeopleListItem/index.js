@@ -6,11 +6,11 @@ import {List, Accordion, Icon} from 'antd-mobile';
 import {PEOPLE_INFO} from '../../utils/config';
 import './style.css';
 
-const getHeadImg = (name, txt)=> {
+const getHeadImg = (data, txt)=> {
 	return (
 		<div className="headimg">
-			<img src="http://img3.imgtn.bdimg.com/it/u=1395349040,1373069980&fm=214&gp=0.jpg" alt=""/>
-			<div className="name">{name}</div>
+			<img src={data['avatar']} alt=""/>
+			<div className="name">{data['partnerName']}</div>
 			<div className="check_desc">{txt}</div>
 		</div>
 	);
@@ -19,7 +19,8 @@ const getHeadImg = (name, txt)=> {
 const getInfoDesc = (data)=> {
 	return (
 		<div className="info_desc">
-			<div className="lastest_shared">{PEOPLE_INFO.LAST_SHARED}：{data['lastShared']}</div>
+			<div
+				className="lastest_shared">{PEOPLE_INFO.LAST_SHARED}：{data['lastShared'] === '' ? '还未分享过' : data['lastShared']}</div>
 			<div className="shared_count">{PEOPLE_INFO.SHARED_COUNT}：{data['shareCounts']} 次</div>
 			<div className="shared_liked">
 				{PEOPLE_INFO.STAR_COUNT}：{data['totalScore']} <Icon type="star"/>
@@ -31,7 +32,7 @@ const getInfoDesc = (data)=> {
 
 const getAccordionPanel = (index, data, txt)=> {
 	return (
-		<Accordion.Panel ref={`ap_${index}`} key={index} header={getHeadImg(data['partnerName'], txt)}>
+		<Accordion.Panel ref={`ap_${index}`} key={index} header={getHeadImg(data, txt)}>
 			<List className="my-list">
 				<List.Item extra={getInfoDesc(data['partnerData'])}/>
 			</List>

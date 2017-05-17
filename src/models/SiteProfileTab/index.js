@@ -3,7 +3,7 @@
 export default {
 	namespace: 'SiteProfileTab',
 	state: {
-		currId: 0
+		currId: '0'
 	},
 	effects: {
 

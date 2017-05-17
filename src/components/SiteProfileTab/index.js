@@ -10,15 +10,21 @@ import './style.css';
 
 class SiteProfileTab extends Component {
 	callback(e) {
-		this.props.dispatch({type: 'SiteProfileTab/setCurrId', currId: e});
+		this.props.dispatch({
+			type: 'SiteProfileTab/setCurrId',
+			currId: e
+		});
 	}
 
 	render() {
 		const fetchedData = this.props.SiteData.ProfileData.data.tabData;
 		return (
 			<div>
-				<Tabs swipeable={false} defaultActiveKey={`${this.props.SiteProfileTab.currId}`}
-					  onChange={(e)=>this.callback(e)}>
+				<Tabs
+					swipeable={false}
+					defaultActiveKey={this.props.SiteProfileTab.currId}
+					onChange={(e)=>this.callback(e)}
+				>
 					{PROFILE_TAB_DATA.map((content, tabIndex)=> {
 						const getTabChild = ()=> {
 							if (tabIndex === 0) {
@@ -31,7 +37,7 @@ class SiteProfileTab extends Component {
 							}
 						};
 						return (
-							<Tabs.TabPane tab={Object.values(content)[0]['TAB_NAME']} key={tabIndex}>
+							<Tabs.TabPane tab={Object.values(content)[0]['TAB_NAME']} key={tabIndex.toString()}>
 								{getTabChild()}
 							</Tabs.TabPane>
 						);

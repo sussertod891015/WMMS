@@ -6,8 +6,8 @@ const SiteProfileShopHistory = (props)=> {
 	return (
 		<div>
 			{props.data.map((content, index)=> {
-				return <List.Item key={index} extra="待评价" arrow="horizontal" onClick={() => {
-				}}>{content}</List.Item>
+				return <List.Item key={index} extra={content['shopDate']} onClick={() => {
+				}}>{content['shopName']}</List.Item>
 			})}
 		</div>
 	);

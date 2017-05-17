@@ -6,22 +6,30 @@ import './style.css';
 
 export default class SiteCard extends Component {
 	render() {
+		const {title, date, desc, name, previewImg, voted, likedCount, meetingCardId} = this.props;
 		return (
-			<WingBlank size="sm">
+			<div>
 				<WhiteSpace size="sm"/>
-				<Card className="meetingContent_card">
+				<Card full className="meetingContent_card">
 					<Card.Header
-						title={this.props.title}
-						thumb="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
-						extra={<div>{this.props.date}</div>}
+						title={title}
+						thumb={previewImg}
+						extra={date}
 					/>
 					<Card.Body>
-						<div>{this.props.desc}</div>
+						<div>{desc}</div>
 					</Card.Body>
-					<Card.Footer content={this.props.name} extra={<SiteMeetingContentLike count="8"/>}/>
+					<Card.Footer content={name}
+								 extra={
+									 <SiteMeetingContentLike
+										 voted={voted}
+										 likedCount={likedCount}
+										 name={name}
+										 meetingCardId={meetingCardId}/>
+								 }/>
 				</Card>
 				<WhiteSpace size="sm"/>
-			</WingBlank>
+			</div>
 		);
 	}
 }

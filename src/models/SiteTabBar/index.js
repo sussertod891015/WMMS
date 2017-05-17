@@ -15,33 +15,7 @@ export default {
 			});
 		}
 	},
-	effects: {
-		*fetchPageData(action, {put, call, select}) {
-			if (action.routeName === HASH_MAP.MEETING_CONTENT) {
-				yield put({
-					type: 'setTab',
-					routeName: action.routeName
-				});
-			} else {
-				Toast.loading('加载中...', 0, () => {
-				});
-
-				yield call(()=> {
-					return new Promise(resolve=> {
-						setTimeout(()=> {
-							resolve();
-						}, 2000);
-					})
-				}, action);
-
-				yield put({
-					type: 'setTab',
-					routeName: action.routeName
-				});
-				yield Toast.hide();
-			}
-		}
-	},
+	effects: {},
 	reducers: {
 		// add(state, {id: todo}) {
 		// 	// 保存数据到 state

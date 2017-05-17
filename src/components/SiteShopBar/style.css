@@ -9,7 +9,8 @@
 
 .am-segment {
 	min-height: .54rem;
-	border-radius: .1rem;
+	/*border-radius: .1rem;*/
+	border-radius: 0;
 }
 
 .am-segment-item{
@@ -17,9 +18,11 @@
 }
 
 .am-segment-item:first-child {
-	border-radius: .1rem 0 0 .1rem;
+	/*border-radius: .1rem 0 0 .1rem;*/
+	border-radius: 0;
 }
 
 .am-segment-item:last-child{
-	border-radius: 0 .1rem .1rem 0;
+	/*border-radius: 0 .1rem .1rem 0;*/
+	border-radius: 0;
 }

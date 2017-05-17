@@ -5,8 +5,8 @@ const SiteProfileShopHistory = (props)=> {
 	return (
 		<div>
 			{props.data.map((content, index)=> {
-				return <List.Item key={index} extra="箭头向右" arrow="horizontal" onClick={() => {
-				}}>{content}</List.Item>
+				return <List.Item key={index} extra={content['shopCounts'] + ' 次'} onClick={() => {
+				}}>{content['shopName']}</List.Item>
 			})}
 		</div>
 	);

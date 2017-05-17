@@ -23,6 +23,7 @@
 	color: #fff;
 	text-shadow: 0 0 .02rem #fff;
 	margin-top: .5rem;
+	letter-spacing: .05rem;
 }
 
 .start_up_container .am-result .am-result-pic {
@@ -40,5 +41,5 @@
 }
 
 .start_up_container .iconfont {
-	font-size: 4rem;
+	font-size: 2rem;
 }

@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {connect} from 'dva';
 import {Result, Button, WingBlank, Icon, DatePicker} from 'antd-mobile';
 import SiteProfileTab from '../SiteProfileTab';
-import SiteProfileDatePicker from '../SiteProfileDatePicker';
 import './style.css';
 
 const getStarComponent = (num)=> {
@@ -28,10 +27,8 @@ class SiteProfile extends Component {
 		const {
 			stars,
 			username,
-			avatar,
-			isAdmin
+			avatar
 		} = this.props.SiteData.ProfileData.data;
-		console.log(avatar);
 		return (
 			<div>
 				<Result
@@ -39,7 +36,6 @@ class SiteProfile extends Component {
 					title={username}
 					message={getStarComponent(stars)}
 				/>
-				{isAdmin ? <SiteProfileDatePicker/> : ''}
 				<SiteProfileTab/>
 			</div>
 		);

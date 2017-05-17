@@ -14,7 +14,36 @@ class SiteShopModal extends Component {
 		});
 	}
 
+	onConfirm() {
+		const {tabCurrId, shopCurrId} = this.props.SiteShopBar;
+		this.props.dispatch({
+			type: 'SiteData/setGoShoppingCurrShopId',
+			currShopId: [tabCurrId, shopCurrId]
+		});
+		this.onClose();
+	}
+
+	getCurrShoppingData() {
+		const {data} = this.props.SiteData.GoShoppingData;
+		const {tabCurrId, shopCurrId} = this.props.SiteShopBar;
+		if (data.length > 0) {
+			const shopData = data[tabCurrId]['tabData'].filter((content)=> {
+				return shopCurrId === content.id;
+			});
+
+			return shopData[0];
+		} else {
+			return '';
+		}
+	}
+
 	render() {
+		const dispatchDefaultShopIdFunc = (defaultShopId)=> {
+			this.props.dispatch({
+				type: 'SiteData/setGoShoppingDefaultShopId',
+				defaultShopId: defaultShopId
+			});
+		};
 		return (
 			<Modal title="小食信息"
 				   className="shop_modal"
@@ -28,15 +57,22 @@ class SiteShopModal extends Component {
 					   }
 				   }, {
 					   text: '确认下单', onPress: () => {
-						   this.onClose();
+						   this.onConfirm();
 					   }
 				   }]}
 			>
 				<div className="my_modal">
 					<Card full>
 						<Card.Header
-							thumb="https://cloud.githubusercontent.com/assets/1698185/18039916/f025c090-6dd9-11e6-9d86-a4d48a1bf049.png"
-							extra={<SiteShopModalMessage/>}
+							thumb={this.getCurrShoppingData()['icon']}
+							extra={
+								<SiteShopModalMessage
+									tabCurrId={this.props.SiteShopBar.tabCurrId}
+									data={this.getCurrShoppingData()}
+									defaultId={this.props.SiteData.GoShoppingData.defaultShopId}
+									dispatchDefaultShopIdFunc={dispatchDefaultShopIdFunc}
+								/>
+							}
 						/>
 					</Card>
 				</div>
@@ -47,7 +83,8 @@ class SiteShopModal extends Component {
 
 function mapStateToProps(state) {
 	return {
-		SiteShopBar: state.SiteShopBar
+		SiteShopBar: state.SiteShopBar,
+		SiteData: state.SiteData
 	}
 }
 

@@ -1,4 +1,8 @@
 html, body, :global(#root) {
-  height: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: PingFangSC-Light, "NotoSans CJK", sans-serif;
 }
 

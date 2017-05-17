@@ -1,6 +1,7 @@
 .headimg img {
 	width: auto;
 	height: 1.5rem;
+	margin-left: .55rem;
 }
 
 .am-accordion.people_list .am-accordion-item .am-accordion-header i {

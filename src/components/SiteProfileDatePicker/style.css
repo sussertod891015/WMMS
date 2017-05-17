@@ -1,3 +1,17 @@
-.btn{
-	background-color: #fff;
+.datePicker_btn{
+	position: absolute;
+	top: -0.68rem;
+	right: 0;
+	width: 270%;
+	height: 1.38rem;
+	line-height: 1.38rem;
+	border: none;
+	background-color: transparent;
+	font-size: .28rem;
+	text-align: right;
+	color: #888;
+}
+
+.datePicker_btn.am-button-primary.am-button-active{
+	background-color: transparent;
 }

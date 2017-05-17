@@ -12,6 +12,7 @@ import SiteShopBar from './models/SiteShopBar';
 import SiteProfileTab from './models/SiteProfileTab';
 import SiteProfileDatePicker from './models/SiteProfileDatePicker';
 import SiteMeetingContentLikeModal from './models/SiteMeetingContentLikeModal';
+import SiteAdmin from './models/SiteAdmin';
 import SiteData from './models/SiteData';
 /******************************* model *******************************/
 
@@ -53,6 +54,7 @@ app.model(SiteShopBar);
 app.model(SiteProfileTab);
 app.model(SiteProfileDatePicker);
 app.model(SiteMeetingContentLikeModal);
+app.model(SiteAdmin);
 app.model(SiteData);
 
 // 4. Router
